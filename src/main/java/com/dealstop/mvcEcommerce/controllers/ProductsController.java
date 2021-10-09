@@ -69,4 +69,10 @@ public class ProductsController {
         return productService.save(productDO);
     }
 
+    @GetMapping("/search")
+    public List<ProductDO> findProducts(@RequestParam String name) throws EntityNotFoundException {
+        String FUNCTION_TAG = TAG + " (findProducts) ";
+        LOG.debug(FUNCTION_TAG);
+        return productService.findProducts(name);
+    }
 }

@@ -49,4 +49,26 @@ public class ProductService {
         return productRepository.save(productDO);
     }
 
+    /**
+     * Find products with various params
+     * @param name
+     * @return
+     * @throws EntityNotFoundException
+     */
+
+    public List<ProductDO> findProducts(String name) throws EntityNotFoundException {
+        String FUNCTION_TAG = TAG + " (findProducts) ";
+        LOG.debug(FUNCTION_TAG);
+
+        if (name == null || name.trim().length() == 0)
+            return findAll();
+
+        List<ProductDO> doList = productRepository.findByNameContainingIgnoreCase(name);
+
+        if (doList.size() == 0)
+            throw new EntityNotFoundException("No products found");
+
+        return doList;
+    }
+
 }
