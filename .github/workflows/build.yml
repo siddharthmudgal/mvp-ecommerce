@@ -1,0 +1,27 @@
+name: mvc ecommerce platform
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [develop]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: start mysql
+        run: sudo service mysql start
+      - name : create database
+        run: mysql -uroot -proot -e 'create database dealstop'
+      - name: checkout source
+        uses: actions/checkout@v2
+      - name: install jdk
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+          cache: maven
+      - name: mvn build
+        run: mvn clean install
