@@ -40,10 +40,32 @@ cd mvp-ecommerce/static-web-page
 ```
 open index.html in Chrome/firefox
 
+#### Rest API's exposed
+
+1. users -> GET / POST
+    ```
+   {
+   	"username": "user3",
+   	"userType": "CUSTOMER"
+   }
+   ```
+2. products -> GET / POST
+    ```
+   {
+   	"name": "APPLE",
+   	"description": "lemon",
+   	"price": 132,
+   	"quantity": 12
+   }
+   ```
+3. users/cart -> GET
+4. users/{user_id}/addtocart/{product_id}
+5. users/{user_id}/removefromcart/{product_id}
+
 ## Code coverage report
 
-| com.dealstop | 93% (15/16) | 61% (50/81) | 72% (166/228) |
-| ------------- | ----------- | ----------- | ----------- |
+| com.dealstop | 93% (15/16) |
+| ------------- | ----------- |
 
 
 ## Bonus
