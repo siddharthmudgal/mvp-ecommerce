@@ -18,6 +18,9 @@ Docker desktop
 
 ![deployment](./deployment.jpeg)
 
+## DB Schema
+![schema](./db-schema.png)
+
 ## How to run
 
 #### start containers
