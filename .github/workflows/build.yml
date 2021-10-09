@@ -16,7 +16,7 @@ jobs:
       - name : create database
         run: mysql -uroot -proot -e 'create database dealstop'
       - name: checkout source
-        uses: action/checkout@v2
+        uses: actions/checkout@v2
       - name: install jdk
         uses: actions/setup-java@v2
         with:
