@@ -1,24 +1,26 @@
 package com.dealstop.mvcEcommerce.domainobjects;
 
-import com.dealstop.mvcEcommerce.enums.UserTypeEnum;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.Instant;
 
 @Entity
-@Table (name = "user")
-@AllArgsConstructor
-@NoArgsConstructor
+@Table (name = "product")
 @Setter
 @Getter
-@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class UserDO {
+public class ProductDO {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -26,10 +28,16 @@ public class UserDO {
     String uuid;
 
     @Column
-    String username;
+    String name;
 
-    @Enumerated(EnumType.STRING)
-    UserTypeEnum userType;
+    @Column
+    String description;
+
+    @Column
+    BigDecimal price;
+
+    @Column
+    Long quantity;
 
     @CreatedDate
     Instant createdOn;

@@ -1,0 +1,10 @@
+INSERT INTO product (uuid, created_on, description, modified_on, name, price, quantity) VALUES ('0d99c629-2f30-40e1-aa96-bc3c716ad78f', '2021-10-09 20:49:43.832558', 'sampledescription', '2021-10-09 20:49:43.832558', 'sampleproduct5', 132.00, 12);
+INSERT INTO product (uuid, created_on, description, modified_on, name, price, quantity) VALUES ('40d9e8b5-2fe4-4c1b-aff4-3c321127a5fd', '2021-10-09 20:49:42.037274', 'sampledescription', '2021-10-09 20:49:42.037274', 'sampleproduct4', 132.00, 12);
+INSERT INTO product (uuid, created_on, description, modified_on, name, price, quantity) VALUES ('417103bd-64e5-469e-8fda-193fe9686e0a', '2021-10-09 20:49:40.220032', 'sampledescription', '2021-10-09 20:49:40.220032', 'sampleproduct3', 132.00, 12);
+INSERT INTO product (uuid, created_on, description, modified_on, name, price, quantity) VALUES ('76b49a49-6073-48fa-8fbf-bf03cea89e9a', '2021-10-09 20:49:35.882515', 'sampledescription', '2021-10-09 20:49:35.882515', 'sampleproduct1', 132.00, 12);
+INSERT INTO product (uuid, created_on, description, modified_on, name, price, quantity) VALUES ('9def6312-f1f3-488e-8de5-719e336c1564', '2021-10-09 20:49:38.038715', 'sampledescription', '2021-10-09 20:49:38.038715', 'sampleproduct2', 132.00, 12);
+
+INSERT INTO product (uuid, created_on, description, modified_on, name, price, quantity) VALUES ('9def6312-f1f3-488e-8de5-719e336c1566', '2021-10-09 20:49:38.038715', 'APPLE', '2021-10-09 20:49:38.038715', 'APPLE', 132.00, 12);
+INSERT INTO product (uuid, created_on, description, modified_on, name, price, quantity) VALUES ('9def6312-f1f3-488e-8de5-719e336c1567', '2021-10-09 20:49:38.038715', 'ORANGE', '2021-10-09 20:49:38.038715', 'ORANGE', 132.00, 12);
+INSERT INTO product (uuid, created_on, description, modified_on, name, price, quantity) VALUES ('9def6312-f1f3-488e-8de5-719e336c1568', '2021-10-09 20:49:38.038715', 'BANANA', '2021-10-09 20:49:38.038715', 'BANANA', 132.00, 12);
+INSERT INTO product (uuid, created_on, description, modified_on, name, price, quantity) VALUES ('9def6312-f1f3-488e-8de5-719e336c1569', '2021-10-09 20:49:38.038715', 'KIWI', '2021-10-09 20:49:38.038715', 'KIWI', 132.00, 12);
