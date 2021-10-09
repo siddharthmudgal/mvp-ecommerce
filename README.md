@@ -42,6 +42,11 @@ open index.html in Chrome/firefox
 
 #### Rest API's exposed
 
+Please note entire rest collection is available under (importable via insomnia) : 
+```
+cd mvp-ecommerce/rest-samples
+```
+
 1. users -> GET / POST
     ```
    {
