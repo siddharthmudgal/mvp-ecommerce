@@ -1,8 +1,9 @@
 package com.dealstop.mvcEcommerce.domainobjects;
 
-import com.dealstop.mvcEcommerce.enums.UserTypeEnum;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -12,35 +13,32 @@ import javax.persistence.*;
 import java.time.Instant;
 
 @Entity
-@Table (name = "user")
-@AllArgsConstructor
-@NoArgsConstructor
+@Table(name = "cartitem")
 @Setter
 @Getter
-@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class UserDO {
+public class CartItemDO {
 
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     String uuid;
 
-    @Column
-    String username;
+    @ManyToOne
+    @JoinColumn(name = "cart_id")
+    CartDO cart_id;
 
-    @Enumerated(EnumType.STRING)
-    UserTypeEnum userType;
+    @OneToOne
+    ProductDO productDO;
+
+    @Column
+    Long quantity;
 
     @CreatedDate
     Instant createdOn;
 
     @LastModifiedDate
     Instant modifiedOn;
-
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn
-    CartDO cart;
-
 }

@@ -1,17 +1,19 @@
 package com.dealstop.mvcEcommerce.controllers;
 
-import com.dealstop.mvcEcommerce.domainobjects.ProductDO;
+import com.dealstop.mvcEcommerce.domainobjects.CartDO;
+import com.dealstop.mvcEcommerce.domainobjects.CartItemDO;
 import com.dealstop.mvcEcommerce.domainobjects.UserDO;
 import com.dealstop.mvcEcommerce.exceptions.EntityNotFoundException;
-import com.dealstop.mvcEcommerce.services.ProductService;
 import com.dealstop.mvcEcommerce.services.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 /**
@@ -69,6 +71,69 @@ public class UserController {
         String FUNCTION_TAG = TAG + " (createUser) ";
         LOG.debug(FUNCTION_TAG);
         return userService.save(json);
+    }
+
+    /**
+     * Load user cart items, creates a new cart if not present
+     * @param user_id
+     * @return
+     * @throws EntityNotFoundException
+     */
+    @GetMapping("/{user_id}/cart")
+    public ResponseEntity<List<CartItemDO>> loadCart(@PathVariable String user_id) throws EntityNotFoundException {
+        String FUNCTION_TAG = TAG + " (loadCart) ";
+        LOG.debug(FUNCTION_TAG);
+
+        return new ResponseEntity<>(
+                userService.loadCart(user_id),
+                HttpStatus.OK
+        );
+    }
+
+    /**
+     * Add to cart actions
+     * @param user_id
+     * @param product_id
+     * @return
+     * @throws EntityNotFoundException
+     */
+
+    @PostMapping("/{user_id}/addtocart/{product_id}")
+    public ResponseEntity<CartDO> addToCart(
+            @PathVariable String user_id,
+            @PathVariable String product_id
+    ) throws EntityNotFoundException {
+
+        String FUNCTION_TAG = TAG + " (addToCart) ";
+        LOG.debug(FUNCTION_TAG);
+        userService.addToCart(user_id, product_id);
+
+        return new ResponseEntity<>(
+                HttpStatus.CREATED
+        );
+    }
+
+    /**
+     * Post request to remove an item from the cart
+     * @param user_id
+     * @param product_id
+     * @return
+     * @throws EntityNotFoundException
+     */
+
+    @PostMapping("/{user_id}/removefromcart/{product_id}")
+    public ResponseEntity<CartDO> removeFromCart(
+            @PathVariable String user_id,
+            @PathVariable String product_id
+    ) throws EntityNotFoundException {
+
+        String FUNCTION_TAG = TAG + " (addToCart) ";
+        LOG.debug(FUNCTION_TAG);
+        userService.removeFromCart(user_id, product_id);
+
+        return new ResponseEntity<>(
+                HttpStatus.OK
+        );
     }
 
 }
