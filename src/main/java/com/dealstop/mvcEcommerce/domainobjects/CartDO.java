@@ -1,5 +1,6 @@
 package com.dealstop.mvcEcommerce.domainobjects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,15 +28,18 @@ public class CartDO {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     String uuid;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "cart")
     UserDO user;
 
     @OneToMany(mappedBy = "cart_id", cascade = CascadeType.REMOVE)
     List<CartItemDO> cartItemDO;
 
+    @JsonIgnore
     @CreatedDate
     Instant createdOn;
 
+    @JsonIgnore
     @LastModifiedDate
     Instant modifiedOn;
 
