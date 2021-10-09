@@ -12,7 +12,11 @@ Ecommerce challenge.
 
 Docker desktop
 
+## Diagrams
 
+![architecture](./architecture.jpeg)
+
+![deployment](./deployment.jpeg)
 
 ## How to run
 
@@ -30,6 +34,11 @@ cd mvp-ecommerce
 docker-compose -f docker-compose.yml down
 ```
 
+#### Static website included
+```
+cd mvp-ecommerce/static-web-page
+```
+open index.html in Chrome/firefox
 
 ## Code coverage report
 
@@ -40,3 +49,4 @@ docker-compose -f docker-compose.yml down
 ## Bonus
 1. Github CI-CD
 2. Docker build
+3. Search enabled in products / cart
