@@ -1,6 +1,7 @@
 package com.dealstop.mvcEcommerce.domainobjects;
 
 import com.dealstop.mvcEcommerce.enums.UserTypeEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -19,7 +20,6 @@ import java.time.Instant;
 @Getter
 @ToString
 @EntityListeners(AuditingEntityListener.class)
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class UserDO {
 
     @Id
@@ -33,13 +33,16 @@ public class UserDO {
     @Enumerated(EnumType.STRING)
     UserTypeEnum userType;
 
+    @JsonIgnore
     @CreatedDate
     Instant createdOn;
 
+    @JsonIgnore
     @LastModifiedDate
     Instant modifiedOn;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
+    @OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JoinColumn
     CartDO cart;
 

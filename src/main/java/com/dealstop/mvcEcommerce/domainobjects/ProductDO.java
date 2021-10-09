@@ -1,5 +1,6 @@
 package com.dealstop.mvcEcommerce.domainobjects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,9 +40,11 @@ public class ProductDO {
     @Column
     Long quantity;
 
+    @JsonIgnore
     @CreatedDate
     Instant createdOn;
 
+    @JsonIgnore
     @LastModifiedDate
     Instant modifiedOn;
 

@@ -16,6 +16,7 @@ import java.util.List;
  * Rest controller to expose products related REST
  */
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/products")
 public class ProductsController {

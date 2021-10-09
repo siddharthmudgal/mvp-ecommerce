@@ -116,7 +116,7 @@ public class CartService {
 
             cartItemsList.add(cartItem);
             cartDO.setCartItemDO(cartItemsList);
-
+            cartRepository.save(cartDO);
         }
 
         return;
