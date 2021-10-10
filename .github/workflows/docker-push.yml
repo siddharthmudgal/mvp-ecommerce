@@ -21,7 +21,7 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: mvn build
-          run: mvn clean install
+        run: mvn clean install
       - name: Publish to Docker Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
