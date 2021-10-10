@@ -70,6 +70,25 @@ cd mvp-ecommerce/rest-samples
 4. users/{user_id}/addtocart/{product_id}
 5. users/{user_id}/removefromcart/{product_id}
 
+#### UX worflow
+
+![](./assets/images/screen1.png)
+
+![](./assets/images/screen2.png)
+
+![](./assets/images/screen3.png)
+
+![](./assets/images/screen4.png)
+
+![](./assets/images/screen5.png)
+
+![](./assets/images/screen6.png)
+
+![](./assets/images/screen7.png)
+
+![](./assets/images/screen8.png)
+
+
 ## Code coverage report
 
 | com.dealstop | 93% (15/16) |
